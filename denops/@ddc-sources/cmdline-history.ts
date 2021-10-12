@@ -23,11 +23,11 @@ export class Source extends BaseSource<Params> {
     const p = args.sourceParams as unknown as Params;
     const maxSize = p.maxSize;
     const histories = await args.denops.call(
-      "ddc_cmdline_history#get",
+      "ddc_cmdline_history#get", maxSize
     ) as string[];
     const inputLength = args.context.input.length - args.completeStr.length;
     const input = args.context.input.substring(0, inputLength);
-    return histories.slice(0, maxSize).filter((word) => word.startsWith(input))
+    return histories.filter((word) => word.startsWith(input))
       .map((word) => ({ word: word.substring(inputLength) }));
   }
 
