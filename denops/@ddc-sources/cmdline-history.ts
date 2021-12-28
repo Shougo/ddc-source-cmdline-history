@@ -28,7 +28,7 @@ export class Source extends BaseSource<Params> {
     const inputLength = args.context.input.length - args.completeStr.length;
     const input = args.context.input.substring(0, inputLength);
     return histories.filter((word) => word.startsWith(input))
-      .map((word) => ({ word: word.substring(inputLength) }));
+      .map((word) => ({ word: word.substring(inputLength) })).reverse();
   }
 
   params(): Params {
