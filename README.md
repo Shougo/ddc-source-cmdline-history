@@ -2,9 +2,8 @@
 
 Command history completion for ddc.vim
 
-This source collects candidates from histget().
-It is useful for command line completion.
-
+This source collects candidates from histget(). It is useful for command line
+completion.
 
 ## Required
 
@@ -12,16 +11,13 @@ It is useful for command line completion.
 
 https://github.com/vim-denops/denops.vim
 
-
 ### ddc.vim
 
 https://github.com/Shougo/ddc.vim
 
-
 ## Configuration
 
 ```vim
-" Use cmdline-history source.
 call ddc#custom#patch_global('sources', ['cmdline-history'])
 
 " Change source options
