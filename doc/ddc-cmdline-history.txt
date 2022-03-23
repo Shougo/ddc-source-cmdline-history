@@ -1,24 +1,23 @@
-*ddc-cmdline.txt*	cmdline completion for ddc.vim
+*ddc-cmdline-history.txt*	cmdline history completion for ddc.vim
 
 Author: Shougo <Shougo.Matsu at gmail.com>
 License: MIT license
 
-CONTENTS					*ddc-cmdline-contents*
+CONTENTS					*ddc-cmdline-history-contents*
 
-Introduction		|ddc-cmdline-introduction|
-Install			|ddc-cmdline-install|
-Examples		|ddc-cmdline-examples|
-
-
-==============================================================================
-INTRODUCTION				*ddc-cmdline-introduction*
-
-This source collects candidates from |getcompletion()|.
-It is useful for command line completion.
+Introduction		|ddc-cmdline-history-introduction|
+Install			|ddc-cmdline-history-install|
+Examples		|ddc-cmdline-history-examples|
 
 
 ==============================================================================
-INSTALL						*ddc-cmdline-install*
+INTRODUCTION				*ddc-cmdline-history-introduction*
+
+This source collects command line history from |histget()|.
+
+
+==============================================================================
+INSTALL						*ddc-cmdline-history-install*
 
 Please install both "ddc.vim" and "denops.vim".
 
@@ -27,7 +26,7 @@ https://github.com/vim-denops/denops.vim
 
 
 ==============================================================================
-EXAMPLES					*ddc-cmdline-examples*
+EXAMPLES					*ddc-cmdline-history-examples*
 >
 >
 	call ddc#custom#patch_global('sources', ['cmdline'])
