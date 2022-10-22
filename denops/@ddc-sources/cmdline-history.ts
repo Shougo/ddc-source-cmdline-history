@@ -33,7 +33,7 @@ export class Source extends BaseSource<Params> {
         word.startsWith(input) && word.indexOf("\r") < 0 &&
         word.indexOf("\n") < 0,
     )
-      .map((word) => ({ word: word.substring(inputLength) })).reverse();
+      .map((word) => ({ word: word.substring(inputLength) }));
   }
 
   params(): Params {
