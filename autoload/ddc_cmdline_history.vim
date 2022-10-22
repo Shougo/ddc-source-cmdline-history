@@ -4,6 +4,5 @@ function! ddc_cmdline_history#get(max) abort
   if max < 1
     return []
   endif
-  return map(range(1, max),
-        \ { _, val -> histget(type, - val) })
+  return map(range(1, max), { _, val -> histget(type, -val) })
 endfunction
