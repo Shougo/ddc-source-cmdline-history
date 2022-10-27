@@ -1,4 +1,4 @@
-# ddc-cmdline-history
+# ddc-source-cmdline-history
 
 Command history completion for ddc.vim
 
