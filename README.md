@@ -20,8 +20,7 @@ https://github.com/Shougo/ddc.vim
 ```vim
 call ddc#custom#patch_global('sources', ['cmdline-history'])
 
-" Change source options
-call ddc#custom#patch_global('sourceOptions', {
-      \ 'cmdline-history': {'mark': 'history'},
+call ddc#custom#patch_global('sourceOptions', #{
+      \   cmdline-history: #{ mark: 'history' },
       \ })
 ```
