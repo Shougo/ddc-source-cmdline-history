@@ -12,7 +12,7 @@ type Params = {
 };
 
 export class Source extends BaseSource<Params> {
-  async gather(args: {
+  override async gather(args: {
     denops: Denops;
     context: Context;
     options: DdcOptions;
@@ -36,7 +36,7 @@ export class Source extends BaseSource<Params> {
       .map((word) => ({ word: word.substring(inputLength) }));
   }
 
-  params(): Params {
+  override params(): Params {
     return {
       maxSize: 1000,
     };
