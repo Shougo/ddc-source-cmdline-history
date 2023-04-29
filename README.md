@@ -2,7 +2,7 @@
 
 Command history completion for ddc.vim
 
-This source collects candidates from histget(). It is useful for command line
+This source collects items from `histget()`. It is useful for command line
 completion.
 
 ## Required
