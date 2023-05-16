@@ -27,13 +27,14 @@ export class Source extends BaseSource<Params> {
       maxSize,
     ) as string[];
     const inputLength = args.context.input.length - args.completeStr.length;
-    const input = args.context.input.substring(0, inputLength);
+    const input = inputLength > 0
+      ? args.context.input.substring(0, inputLength)
+      : args.context.input;
     return histories.filter(
       (word) =>
         word.startsWith(input) && word.indexOf("\r") < 0 &&
         word.indexOf("\n") < 0,
-    )
-      .map((word) => ({ word: word.substring(inputLength) }));
+    ).map((word) => ({ word: word.substring(inputLength) }));
   }
 
   override params(): Params {
