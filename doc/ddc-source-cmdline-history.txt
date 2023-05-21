@@ -28,7 +28,6 @@ https://github.com/vim-denops/denops.vim
 ==============================================================================
 EXAMPLES				*ddc-source-cmdline-history-examples*
 >
->
 	call ddc#custom#patch_global('sources', ['cmdline'])
 	
 	call ddc#custom#patch_global(sourceOptions, #{
