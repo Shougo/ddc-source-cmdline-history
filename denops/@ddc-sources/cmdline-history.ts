@@ -4,8 +4,8 @@ import {
   DdcOptions,
   Item,
   SourceOptions,
-} from "https://deno.land/x/ddc_vim@v3.4.0/types.ts";
-import { Denops } from "https://deno.land/x/ddc_vim@v3.4.0/deps.ts";
+} from "https://deno.land/x/ddc_vim@v3.9.2/types.ts";
+import { Denops } from "https://deno.land/x/ddc_vim@v3.9.2/deps.ts";
 
 type Params = {
   maxSize: number;
@@ -20,12 +20,16 @@ export class Source extends BaseSource<Params> {
     sourceParams: Params;
     completeStr: string;
   }): Promise<Item[]> {
-    const p = args.sourceParams as unknown as Params;
-    const maxSize = p.maxSize;
+    const maxSize = args.sourceParams.maxSize;
     const histories = await args.denops.call(
       "ddc_cmdline_history#get",
       maxSize,
     ) as string[];
+
+    if (args.context.input.indexOf(" ") < 0) {
+      return histories.map((word) => ({ word }));
+    }
+
     const inputLength = args.context.input.length - args.completeStr.length;
     const input = inputLength > 0
       ? args.context.input.substring(0, inputLength)
