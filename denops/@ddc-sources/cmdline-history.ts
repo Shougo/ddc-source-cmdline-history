@@ -1,11 +1,12 @@
 import {
   BaseSource,
-  Context,
-  DdcOptions,
-  Item,
-  SourceOptions,
-} from "https://deno.land/x/ddc_vim@v3.9.2/types.ts";
-import { Denops } from "https://deno.land/x/ddc_vim@v3.9.2/deps.ts";
+  type Context,
+  type DdcOptions,
+  type Item,
+  type SourceOptions,
+} from "jsr:@shougo/ddc-vim@6.0.0/types";
+
+import type { Denops } from "jsr:@denops/core@^7.0.0";
 
 type Params = {
   maxSize: number;
