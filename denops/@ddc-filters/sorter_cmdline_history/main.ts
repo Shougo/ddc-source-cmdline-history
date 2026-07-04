@@ -38,9 +38,19 @@ export class Filter extends BaseFilter<Params> {
       args.filterParams.limit,
     ) as string[];
 
+    const scoreMap = new Map<string, number>();
+    for (const item of args.items) {
+      if (!scoreMap.has(item.word)) {
+        scoreMap.set(
+          item.word,
+          calcScore(args.filterParams.limit, item.word, histories),
+        );
+      }
+    }
+
     return Promise.resolve(args.items.sort((a, b) => {
-      return calcScore(args.filterParams.limit, a.word, histories) -
-        calcScore(args.filterParams.limit, b.word, histories);
+      return (scoreMap.get(a.word) ?? args.filterParams.limit) -
+        (scoreMap.get(b.word) ?? args.filterParams.limit);
     }));
   }
 
